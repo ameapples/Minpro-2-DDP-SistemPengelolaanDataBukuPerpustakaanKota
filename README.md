@@ -6,7 +6,7 @@ Ini adalah program yang saya buat untuk mengelola data buku perpustakaan melalui
 > 
 > NIM: 008
 > 
-> Mini Project 2 - Dasar-Dasar Pemrograman (DDP) - Kelas A
+> Mini Project 2 - Praktikum Dasar-Dasar Pemrograman (DDP) - Kelas A
 
 ---
 
@@ -290,3 +290,213 @@ Jika terjadi error di `main()`: bila penyebabnya `Ctrl+C` / `Ctrl+D`, tampil "Pr
 
 - Data buku bersifat sementara (disimpan di memori, tidak ke file/database).
 - Kredensial akun saya tulis langsung di kode karena program ini dibuat untuk keperluan pembelajaran.
+
+## Output Program dan Penjelasannya
+
+### Output 1: Login Admin dan Tambah Data Buku
+
+<img width="1366" height="768" alt="Screenshot (195)" src="https://github.com/user-attachments/assets/3535d540-3204-4b6a-8650-49f4178a62d3" />
+
+```
+================================
+        LOGIN PERPUSTAKAAN
+================================
+Username : admin
+Password : ********
+
+Login berhasil!
+Selamat datang, admin
+Role : Admin Perpustakaan
+
+================================
+    MENU ADMIN PERPUSTAKAAN
+================================
+1. Tambah Data Buku
+2. Tampilkan Data Buku
+3. Ubah Data Buku
+4. Hapus Data Buku
+5. Logout
+Pilih menu (1-5): 1
+
+================================
+        TAMBAH DATA BUKU
+================================
+Masukkan kode buku: B005
+Masukkan judul buku: Dilan 1990
+Masukkan nama penulis: Pidi Baiq
+Masukkan tahun terbit: 2014
+Data buku berhasil ditambahkan!
+```
+
+**Penjelasan:**
+- Program diawali dengan layar login. Pengguna memasukkan username `admin` dan password yang tampil sebagai tanda bintang (`********`) agar tidak terlihat.
+- Karena username dan password sesuai, program menampilkan pesan "Login berhasil!" beserta sapaan dan **role** pengguna, yaitu Admin Perpustakaan.
+- Program lalu menampilkan **Menu Admin** yang berisi 5 pilihan: tambah, tampilkan, ubah, hapus, dan logout.
+- Pengguna memilih menu **1** (Tambah Data Buku), kemudian mengisi kode `B005`, judul `Dilan 1990`, penulis `Pidi Baiq`, dan tahun terbit `2014`.
+- Setelah data tersimpan, muncul pesan "Data buku berhasil ditambahkan!" dan program kembali menampilkan menu admin.
+
+---
+
+### Output 2: Tampilkan Data Buku dan Awal Proses Ubah Data
+
+<img width="1366" height="768" alt="Screenshot (196)" src="https://github.com/user-attachments/assets/650a7074-cad8-4cb6-9cf4-39587c97c695" />
+
+```
+Pilih menu (1-5): 2
+
+================================
+        DAFTAR DATA BUKU
+================================
++------+-----------------+-------------------+-------+
+| Kode |      Judul      |      Penulis      | Tahun |
++------+-----------------+-------------------+-------+
+| B001 |       Bumi      |     Tere Liye     |  2014 |
+| B002 |  Laut Bercerita |  Leila S. Chudori |  2017 |
+| B003 | Sherlock Holmes | Arthur Conan Doyle|  1887 |
+| B004 |  Norwegian Wood |  Haruki Murakami  |  1987 |
+| B005 |    Dilan 1990   |     Pidi Baiq     |  2014 |
++------+-----------------+-------------------+-------+
+
+Pilih menu (1-5): 3
+
+================================
+         UBAH DATA BUKU
+================================
+Masukkan kode buku yang ingin diubah: B002
+
+Data ditemukan!
+Judul lama   : Laut Bercerita
+Penulis lama : Leila S. Chudori
+```
+
+**Penjelasan:**
+- Pengguna memilih menu **2** (Tampilkan Data Buku). Data ditampilkan dalam bentuk tabel dengan kolom Kode, Judul, Penulis, dan Tahun.
+- Tabel berisi 5 buku (B001 sampai B005). Buku B005 *Dilan 1990* muncul, yang membuktikan proses tambah data pada Output 1 berhasil.
+- Setelah kembali ke menu, pengguna memilih menu **3** (Ubah Data Buku) dan memasukkan kode `B002`.
+- Program mencari kode tersebut. Karena ada, program menampilkan "Data ditemukan!" beserta data lama (judul dan penulis) sebagai acuan sebelum diubah.
+
+---
+
+### Output 3: Ubah Data Buku dan Awal Proses Hapus Data
+
+<img width="1366" height="768" alt="Screenshot (197)" src="https://github.com/user-attachments/assets/7d1678cb-d1e9-46c2-b7e4-ecedf709ef49" />
+
+```
+================================
+         UBAH DATA BUKU
+================================
+Masukkan kode buku yang ingin diubah: B002
+
+Data ditemukan!
+Judul lama   : Laut Bercerita
+Penulis lama : Leila S. Chudori
+Tahun lama   : 2017
+Masukkan judul baru: Bumi Manusia
+Masukkan penulis baru: Pramoedya Ananta Toer
+Masukkan tahun terbit baru: 1980
+Data buku berhasil diubah!
+
+================================
+    MENU ADMIN PERPUSTAKAAN
+================================
+1. Tambah Data Buku
+2. Tampilkan Data Buku
+3. Ubah Data Buku
+4. Hapus Data Buku
+5. Logout
+Pilih menu (1-5): 4
+
+================================
+         HAPUS DATA BUKU
+================================
+Masukkan kode buku yang ingin dihapus: B005
+
+Data buku ditemukan!
+Kode    : B005
+Judul   : Dilan 1990
+Penulis : Pidi Baiq
+Tahun   : 2014
+Yakin ingin menghapus? (y/n): y
+```
+
+**Penjelasan:**
+- Lanjutan proses ubah data: program menampilkan data lama lengkap (judul, penulis, dan tahun), lalu meminta data baru.
+- Pengguna mengganti buku B002 menjadi judul `Bumi Manusia`, penulis `Pramoedya Ananta Toer`, tahun `1980`. Program menampilkan "Data buku berhasil diubah!".
+- Setelah kembali ke menu admin, pengguna memilih menu **4** (Hapus Data Buku) dan memasukkan kode `B005`.
+- Program menampilkan detail buku yang akan dihapus (kode, judul, penulis, tahun), lalu meminta **konfirmasi** `Yakin ingin menghapus? (y/n)`. Pengguna menjawab `y`. Konfirmasi ini mencegah data terhapus secara tidak sengaja.
+
+---
+
+### Output 4: Data Berhasil Dihapus
+
+<img width="1366" height="768" alt="Screenshot (198)" src="https://github.com/user-attachments/assets/34010ebb-463f-4c79-90fa-835a8a314e51" />
+
+```
+Yakin ingin menghapus? (y/n): y
+Data buku berhasil dihapus!
+
+================================
+    MENU ADMIN PERPUSTAKAAN
+================================
+1. Tambah Data Buku
+2. Tampilkan Data Buku
+3. Ubah Data Buku
+4. Hapus Data Buku
+5. Logout
+Pilih menu (1-5):
+```
+
+**Penjelasan:**
+- Karena pengguna menjawab `y`, program menghapus buku B005 dan menampilkan pesan "Data buku berhasil dihapus!".
+- Program kembali menampilkan menu admin dan menunggu pilihan berikutnya. Ini menunjukkan menu berjalan dalam perulangan sampai pengguna memilih **5. Logout**.
+
+---
+
+### Output 5: Login Pengunjung
+
+<img width="1366" height="768" alt="Screenshot (199)" src="https://github.com/user-attachments/assets/060ddeef-17f3-4e30-9fb4-6129c60218ea" />
+
+```
+================================
+        LOGIN PERPUSTAKAAN
+================================
+Username : pengunjung
+Password : *************
+
+Login berhasil!
+Selamat datang, pengunjung
+Role : Pengunjung
+
+================================
+       MENU PENGUNJUNG
+================================
+1. Tampilkan Data Buku
+2. Logout
+Pilih menu (1-2): 1
+
+================================
+        DAFTAR DATA BUKU
+================================
++------+-----------------+-----------------------+-------+
+| Kode |      Judul      |        Penulis        | Tahun |
++------+-----------------+-----------------------+-------+
+| B001 |       Bumi      |       Tere Liye       |  2014 |
+| B002 |   Bumi Manusia  | Pramoedya Ananta Toer |  1980 |
+| B003 | Sherlock Holmes |   Arthur Conan Doyle  |  1887 |
+| B004 |  Norwegian Wood |     Haruki Murakami   |  1987 |
++------+-----------------+-----------------------+-------+
+
+================================
+       MENU PENGUNJUNG
+================================
+1. Tampilkan Data Buku
+2. Logout
+Pilih menu (1-2):
+```
+
+**Penjelasan:**
+- Pengguna login dengan username `pengunjung`. Program mengenali role **Pengunjung** dan menampilkan menu yang berbeda dari admin.
+- Menu Pengunjung hanya memiliki 2 pilihan: **Tampilkan Data Buku** dan **Logout**. Pengunjung tidak dapat menambah, mengubah, atau menghapus data (pembatasan hak akses berdasarkan role).
+- Setelah memilih menu **1**, tabel buku ditampilkan dengan data terbaru: B002 sudah berubah menjadi *Bumi Manusia* karya Pramoedya Ananta Toer (1980), dan B005 sudah tidak ada karena telah dihapus oleh admin.
+- Lebar kolom Penulis menyesuaikan otomatis dengan teks terpanjang, sehingga tabel tetap rapi.
+- Setelah menampilkan data, program kembali ke menu pengunjung.
