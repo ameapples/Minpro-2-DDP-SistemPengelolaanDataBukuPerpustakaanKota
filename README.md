@@ -227,6 +227,9 @@ Program dijalankan dengan memanggil `main()` di akhir file.
 
 ## Flowchart
 
+<img width="1665" height="4635" alt="Flowchart Mini Project DDP 2 drawio" src="https://github.com/user-attachments/assets/2d483c70-cf7a-4988-8e75-5bc26142f4e5" />
+
+
 Flowchart yang saya buat terbagi menjadi 8 bagian. Penghubung bernomor (lingkaran) dipakai untuk berpindah antar bagian:
 
 > **Keterangan:** 1 = kembali ke menu utama, 2 = kembali ke menu admin, 3 = kembali ke menu pengunjung, 4 = lanjut ke baris berikutnya, 5 = menuju Jeda, 6 = menuju Selesai pada fungsi tersebut.
