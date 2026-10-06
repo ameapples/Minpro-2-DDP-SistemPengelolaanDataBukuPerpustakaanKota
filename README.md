@@ -503,3 +503,41 @@ Pilih menu (1-2):
 - Setelah memilih menu **1**, tabel buku ditampilkan dengan data terbaru: B002 sudah berubah menjadi *Bumi Manusia* karya Pramoedya Ananta Toer (1980), dan B005 sudah tidak ada karena telah dihapus oleh admin.
 - Lebar kolom Penulis menyesuaikan otomatis dengan teks terpanjang, sehingga tabel tetap rapi.
 - Setelah menampilkan data, program kembali ke menu pengunjung.
+
+
+## Validasi Input dan Error Handling
+
+Program memvalidasi input pengguna dengan `try-except` dan pengecekan kondisi, sehingga input yang salah tidak menyebabkan program berhenti atau error.
+
+| No | Bagian program | Penanganan |
+|---|---|---|
+| 1 | Input tahun terbit (tambah dan ubah buku) | Memakai `try-except ValueError` di dalam `while True`. Jika pengguna mengetik huruf atau simbol, muncul pesan "Tahun harus berupa angka!" dan pengguna diminta mengisi ulang. Tahun yang kurang dari atau sama dengan 0 juga ditolak ("Tahun harus lebih dari 0!"). |
+| 2 | Input kosong | Kode, judul, dan penulis tidak boleh kosong. Jika kosong, muncul pesan peringatan dan proses dibatalkan sehingga data tidak tersimpan. Berlaku pada menu tambah dan ubah. |
+| 3 | Kode buku kembar | Pada menu tambah, program mengecek seluruh data. Jika kode sudah ada, muncul pesan "Kode buku sudah digunakan!" dan data tidak ditambahkan. |
+| 4 | Kode buku tidak ditemukan | Pada menu ubah dan hapus, jika kode tidak ada di data, muncul pesan "Data buku dengan kode tersebut tidak ditemukan." |
+| 5 | Konfirmasi hapus | Jawaban `y` menghapus data, `n` membatalkan, dan jawaban lain ditolak dengan pesan "Pilihan tidak valid! Masukkan y atau n." Data tidak terhapus kecuali dijawab `y`. |
+| 6 | Pilihan menu | Menu utama, menu admin (1-5), dan menu pengunjung (1-2) memeriksa pilihan. Pilihan di luar daftar menampilkan "Pilihan tidak valid!" lalu menu muncul lagi. |
+| 7 | Login | Username yang tidak terdaftar menampilkan "Username tidak ditemukan!", dan password yang salah menampilkan "Password salah!". Program lalu kembali ke menu utama. Username juga dinormalisasi dengan `.strip().lower()`, sehingga spasi dan huruf besar tidak jadi masalah. |
+| 8 | Data buku kosong | Jika tidak ada data, program menampilkan "Belum ada data buku." dan tidak membuat tabel kosong. |
+| 9 | Ctrl+C atau Ctrl+D | `except (KeyboardInterrupt, EOFError)` pada fungsi `main()` membuat program keluar dengan rapi dan menampilkan pesan terima kasih. |
+| 10 | Error tak terduga | `except Exception` menangkap error lain, menampilkan pesan kesalahan, lalu kembali ke menu utama. Program tidak langsung berhenti. |
+
+---
+
+## Library yang Digunakan
+
+Program menggunakan 3 library:
+
+| Library | Jenis | Kegunaan di program |
+|---|---|---|
+| `os` | Bawaan Python | Membersihkan layar terminal dengan `os.system("cls" / "clear")`. Perintah dipilih otomatis sesuai sistem operasi (`cls` untuk Windows, `clear` untuk Linux/macOS), sehingga tampilan menu tetap bersih. |
+| `pwinput` | Pihak ketiga | Menyembunyikan password saat login. Setiap karakter yang diketik tampil sebagai `*` (lihat `Password : ********` pada Output 1). |
+| `prettytable` | Pihak ketiga | Membuat tabel data buku yang rapi dengan border dan lebar kolom otomatis (lihat tabel pada Output 2 dan 5). |
+
+Instalasi library pihak ketiga:
+
+```bash
+pip install pwinput prettytable
+```
+
+---
